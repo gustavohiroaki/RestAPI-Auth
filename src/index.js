@@ -6,7 +6,9 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:false}));
 
-
+require('./controllers/projectController')(app);
 require('./controllers/authController')(app);
 
-app.listen(3000);
+app.listen(3000,()=>{
+    console.log('The server is running!');
+});
